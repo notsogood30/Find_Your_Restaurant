@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>Home</title>
+<head>
+  <style type="text/css">
+    #bg{
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed;
+    }
+    .d {
+  opacity: 0.7;
+}
+</style>
+</head>
+{% load static %}
+<body id="bg" style="background-image: url('{% static "accounts/IMG.jpg" %}');">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div align="center" class="d"><font style="font-family:comic sans MS;font-size:80px;color:white"><b>FIND YOUR RESTAURANT!!</b></font></div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <table width="100" align="center" border=5px bordercolor="white">
+    <tr ><td align="center"><div align="center"><a href="{% url 'accounts:login' %}"><button type="button" name="NEW TRANSLATION" style = "background-color:black;font-size:40px;color:white;height:60">LOGIN!</button></a></td>
+    <td><a href="{% url 'accounts:signup' %}"><button type="button" name="NEW TRANSLATION" style = "background-color:black;font-size:40px;color:white;height:60">SIGNUP!</button></a></td></tr></table>
+</body>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style type="text/css">
+    #bg{
+      background-size: 1800px 900px;
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: fixed;
+    }
+    .m {
+      font-size: 20px;
+      font-family: "comic sans MS";
+      font-weight: bold;
+      color: white;
+      border-width: 3;
+      border-color: white;
+    }
+    .n{
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+{% load static %}
+<body id="bg" style="background-image: url('{% static "accounts/rush.jpg" %}')";>
+  <table width="100%" align="center">
+    <tr><td><a href="{% url 'accounts:mainpage' %}"><button type="button" style = "background-color:#BA0808;font-size:20px;color:white;height:60">BACK>></button></a>
+    </td>
+    <td>
+      <div align="center" class=n><font style="font-family:algerian;font-size:70px;color:red"><b>SEARCH RESTAURANT</b></font></div>
+    </td></tr>
+  </table>
+
+<br><br>
+<table border="0" align="center" >
+  <tr ><td class="n">
+<p><font style="font-family:comic sans MS;font-size:30px;color:white"><b>No of poeple : </p></td>
+<td class="n">
+  <select id="mySelect" onchange="myFunction()">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select></td></tr>
+<tr><td class="n">
+  <label for="timing"><font style="font-family:comic sans MS;font-size:30px;color:white"><b>Timing:</label></td>
+  <td>
+  <input type="time" id="name" name="name" value="" /></td></tr>
+  <tr><td class="n"><label for="city"><font style="font-family:comic sans MS;font-size:30px;color:white"><b>City:</label></td>
+  <td><select id="cityOption" onchange="myCity()">
+    <option>--Choose your City--</option>
+    <option>Koramangala 4th Block</option>
+    <option>Koramangala 5th Block</option>
+    <option>Koramangala 6th Block</option>
+    <option>Koramangala 7th Block</option>
+    <option>Indiranagar</option>
+    <option>Jayanagar</option>
+    <option>HSR</option>
+    <option>BTM</option>
+    <option>JP Nagar</option>
+    <option>MG Road</option>
+    <option>Lavelle Road</option>
+  </select></td></tr>
+<tr><td class="n">
+  <label for="restOption"><font style="font-family:comic sans MS;font-size:30px;color:white"><b>Restaurant Type:</label></td>
+  <td><select id="restOption" onchange="myRest()">
+    <option>--Choose Restraunt Type--</option>
+    <option>Casual Dining</option>
+    <option>Quick Bites</option>
+    <option>Cafe</option>
+    <option>Dessert Parlor</option>
+  </select></td></tr>
+  <tr><td><br></td></tr>
+  <tr><td colspan="2" align = "center">
+  <button onclick="clickHandler()" style = "background-color:#BA0808;font-size:30px;color:white;height:60">Search</button>
+</td></tr>
+  <p id="demo"></p>
+
+  <script>
+    var city;
+    function myCity() {
+      city = document.getElementById("cityOption").value;
+      console.log(city);
+    }
+    function myRest() {
+      rest = document.getElementById("restOption").value;
+      console.log(rest);
+    }
+    function clickHandler() {
+      if (city == "Koramangala 5th Block" && rest == "Casual Dining") {
+        document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p align= center>address:----62, RB Fashion House, Jyoti Nivas College Road<br>name:----Shanmukha<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----080 49652639<br>location:----Koramangala 5th Block<br>rest_type:----Casual Dining<br>cuisines:----Biryani, Andhra, North Indian, Chinese</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 5th Block" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----52, Industrial Layout, 5th Block, Opposite Jyo...<br>name:----Tibetan Kitchen<br>online_order:----Yes<br>book_table:----No<br>rate:----4.3<br>phone :----080 25524435<br>location:----Koramangala 5th Block<br>rest_type:----Quick Bites<br>cuisines:----Tibetan, Chinese, Continental, Momos</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 5th Block" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----23, Near Mangala Kalyana Mantapa, MIG, KHB <br>name:----Dyu Art Cafe<br>online_order:----No<br>book_table:----No<br>rate:----4.5<br>phone:----+91 9895674244\r\n+91 9611319774<br>location:----Koramangala 5th Block<br>rest_type:----Cafe<br>cuisines:----Cafe, Italian, Fast Food</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 5th Block" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----487, JT Plaza, JNC Road, Koramangala 5th Block<br>name:----Cream Chemistry<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----+91 9916025496<br>location:----Koramangala 5th Block<br>rest_type:----Dessert Parlor< br>cuisines:----Ice Cream, Desserts</p></td></tr></table>";
+      }
+      else if(city=="Indiranagar" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----1088, 12th Main, HAL 2nd Stage, Off 100 Feet<br>name:----Nando's<br>online_order:----Yes<br>book_table:----No<br>rate:----4.3<br>phone:----080 48538989<br>location:----Indiranagar<br>rest_type:----Casual Dining<br>cuisines:----Portuguese, African</p></td></tr></table>";
+      }
+      else if(city=="Indiranagar" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----8/ 9, 17th F Cross, 2nd Stage, Indiranagar<br>name:----Donne Biriyani House<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----+91 9739406501<br>location:----Indiranagar<br>rest_type:----Quick Bites<br>cuisines:----Biryani</p></td></tr></table>";
+      }
+      else if(city=="Indiranagar" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----1083,5th Cross, Opposite Corporation Bank, 12t<br>name:----Bean Flickers<br>online_order:----Yes<br>book_table:----No<br>rate:----4.3<br>phone:----080 41209097\r\r\n+91 9886367831<br>location:----Indiranagar<br>rest_type:----Cafe<br>cuisines:----Cafe, American, Fast Food, Coffee, Continental</p></td></tr></table>";
+      }
+      else if(city=="Indiranagar" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----949, 12th Main Rd, Appareddipalya, Indiranagar<br>name:----The Belgian Waffle Co.<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----080 43755127<br>location:----Indiranagar<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts</p></td></tr></table>";
+      }
+      else if(city=="Jayanagar" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----4, Opposite NMKRV College, 21st C Cross Road, ...<br>name:----Empire Restaurant<br>online_order:----Yes<br>book_table:----No<br>rate:----4.4<br>phone:----080 49653266<br>location:----Jayanagar<br>rest_type:----Casual Dining<br>cuisines:----North Indian, Mughlai, South Indian, Chinese</p></td></tr></table>";
+      }
+      else if(city=="Jayanagar" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----6th C Main, 4th Block, Jayanagar, Bangalore<br>name:----Kedia's Fun Food<br>online_order:----Yes<br>book_table:----No<br>rate:----4.3<br>phone:----+91 8867769557<br>location:----Jayanagar<br>rest_type:----Quick Bites<br>cuisines:----North Indian, Street Food, Juices</p></td></tr></table>";
+      }
+      else if(city=="Jayanagar" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----615/1, Ground Floor, Janardhan Mansion, 10th C...<br>name:----The Blue Wagon - Kitchen<br>online_order:----Yes<br>book_table:----No<br>rate:----4.6<br>phone:----+91 8105485007\r\n+91 8095904280<br>location:----Jayanagar<br>rest_type:----Cafe<br>cuisines:----Cafe, Beverages</p></td></tr></table>";
+      }
+      else if(city=="Jayanagar" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----1A/29 , Shop 2 , 27th Cross, Jayanagar, Bangalore<br>name:----Roll Over<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----+91 8884942976\r\n+91 8884942900<br>location:----Jayanagar<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts, Ice Cream, Beverages, Fast Food</p></td></tr></table>";
+      }
+      else if(city=="HSR" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----2331, 17th Cross, 24th Main, HSR, Bangalore<br>name:----Bathinda Junction<br>online_order:----Yes<br>book_table:----Yes<br>rate:----4<br>phone:----+91 8095766619<br>location:----HSR<br>rest_type:----Casual Dining<br>cuisines:----North Indian</p></td></tr></table>";
+      }
+      else if(city=="HSR" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----191, Ground Floor, 27th Main Road<br>name:----Petoo<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----+91 7899670003<br>location:----HSR<br>rest_type:----Quick Bites<br>cuisines:----North Indian, Fast Food, Street Food</p></td></tr></table>";
+      }
+      else if(city=="HSR" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----2733, 16th Cross, 27th Main Road, Oppsite<br>name:----Soup'ermanz Kitchen<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----+91 7795076877\r\n+91 7259725921<br>location:----HSR<br>rest_type:----Cafe<br>cuisines:----Cafe, Continental, Burger</p></td></tr></table>";
+      }
+      else if(city=="HSR" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----27th Main road, Sriven Teesta, Near Raymond?s ...<br>name:----XO Belgian Waffle<br>online_order:----Yes<br>book_table:----No<br>rate:----4.5<br>phone:----080 49652999<br>location:----HSR<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts, Beverages</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 6th Block" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----54, 5th A Cross, Canara Bank Road, 6th Block, ...<br>name:----Oye Amritsar<br>online_order:----Yes<br>book_table:----Yes<br>rate:----4<br>phone:----080 40994451\r\n+91 9945521705<br>location:----Koramangala 6th Block<br>rest_type:----Casual Dining<br>cuisines:----North Indian</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 6th Block" && rest=="Quick Bites " )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----Near Bharat Residency, MM Garden, Koramangala ...<br>name:----The Charcoal Factory<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----+91 9148164362\r\n+91 8884144911<br>location:----Koramangala 6th Block<br>rest_type:----Quick Bites<br>cuisines:----Burger, Pizza, Momos</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 6th Block" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----436, 18th Main, 80 Feet Road, Koramangala 6th ..<br>name:----Zee5 Loft<br>online_order:----Yes<br>book_table:----No<br>rate:----4.4<br>phone:----080 49653381<br>location:----Koramangala 6th Block<br>rest_type:----Cafe<br>cuisines:----Cafe, North Indian, Pizza, Sandwich, Salad</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 6th Block" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----55, 5th Cross, Koramangala 6th Block, Bangalore<br>name:----Stoned Monkey<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----+91 9844993807<br>location:----Koramangala 6th Block<br>rest_type:----Dessert Parlor<br>cuisines :----Desserts, Ice Cream</p></td></tr></table>";
+      }
+      else if(city=="BTM" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----806, Near ICICI Bank, 7th Cross, 16th Main, 2n...<br>name:----Momoz<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----+91 9986304455\r\r\n080 41677117<br>location:----BTM<br>rest_type:----Casual Dining<br>cuisines:----Chinese, Momos</p></td></tr></table>";
+      }
+      else if(city=="BTM" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----57/1, Near Alliance University, 19th Cross, 7t...<br>name:----Hiyar Majhe Kolkata<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----+91 9108919806\r\r\n+91 9739059571<br>location:----BTM<br>rest_type:----Quick <br>cuisines:----Bengali, North Indian</p></td></tr></table>";
+      }
+      else if(city=="BTM" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----57/1, Near Alliance University, 19th Cross, 7t...<br>name:----Hiyar Majhe Kolkata<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----+91 9108919806\r\r\n+91 9739059571<br>location:----BTM<br>rest_type :----Quick Bites<br>cuisines:----Bengali, North Indian</p></td></tr></table>";
+      }
+      else if(city=="BTM" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----948, 16th Main, MICO Layout, 2nd Stage, BTM, B...<br>name:----XO Belgian Waffle<br>online_order:----Yes<br>book_table:----No<br>rate:----4.5<br>phone:----080 45128804<br>location:----BTM<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts, Beverages</p></td></tr></table>";
+      }
+      else if(city=="JP Nagar" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----67, 15th Cross, 6th B Main, JP Nagar, Bangalore<br>name:----Barbeque Nation<br>online_order:----No<br>book_table:----Yes<br>rate:----4.7<br>phone:----+91 8064806060<br>location:----JP Nagar<br>rest_type:----Casual Dining<br>cuisines:----North Indian, European, Mediterranean, BBQ, Kebab</p></td></tr></table>";
+      }
+      else if(city=="JP Nagar" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----37, Diagonally Opposite Ranga Shankara, 2nd Ph...<br>name:----Adithya<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----080 49652760<br>location:----JP Nagar<br>rest_type:----Quick Bites<br>cuisines:----South Indian, North Indian, Chinese</p></td></tr></table>";
+      }
+      else if(city=="JP Nagar" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----5th Cross Road, Dollar Layout, 3rd Phase, JP <br>name:----Slate Cafe<br>online_order:----Yes<br>book_table:----No<br>rate :----4.1<br>phone:----+91 8040923832<br>location:----JP Nagar<br>rest_type:----Cafe<br>cuisines:----Cafe, Sandwich, Burger</p></td></tr></table>";
+      }
+      else if(city=="JP Nagar" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----10, Ground Floor, 24th Main, Ayodhya Nagar, 5t...<br>name:----Roll Over<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----+91 9901999868\r\r\n+91 9986034959<br>location:----JP Nagar<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts, Ice Cream, Beverages, Fast Food</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 7th Block" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----2nd Floor, Forum Mall, Koramangala 7th Block, ...<br>name:----Toscano<br>online_order:----Yes<br>book_table:----Yes<br>rate:----4.5<br>phone:----080 22067757\r\n+91 7619320075<br>location:----Koramangala 7th Block<br>rest_type:----Casual Dining<br>cuisines:----Italian, Salad</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 7th Block" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----234/A, 1st Main, Koramangala 7th Block, Bangalore<br>name:----Arya Hungry?<br>online_order:----Yes<br>book_table:----No<br>rate:----4.3<br>phone:----+91 7899337350\r\r\n+91 9538079486<br>location:----Koramangala 7th Block<br>rest_type:----Quick Bites<br>cuisines:----North Indian</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 7th Block" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----Ground Floor, 343, 1st B Main, Koramangala 7th...<br>name:----Maxpresso<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----080 48902064\r\n+91 9620723546<br>location:----Koramangala 7th Block<br>rest_type:----Cafe<br>cuisines:----Cafe, American, Italian, Beverages</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 7th Block" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----Forum Mall, Hosur Road, Koramangala 7th Block,...<br>name:----Cookie Man<br>online_order:----Yes<br>book_table:----No<br>rate:----4<br>phone:----080 22067766<br>location:----Koramangala 7th Block<br>rest_type:----Dessert Parlor<br>cuisines:----Bakery</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 4th Block" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----7, 80 Feet Road, Koramangala 4th Block, Bangalore<br>name:----Hanoi - Vietnamese Cuisine<br>online_order:----Yes<br>book_table:----Yes<br>rate:----4.4<br>phone:----080 41405599\r\n+91 9108801480<br>location:----Koramangala 4th Block<br>rest_type:----Casual Dining<br>cuisines:----Vietnamese</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 4th Block" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----24, Shankar Plaza, 80 Feet Road, Koramangala 4...<br>name:----La Pino'z Pizza<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----080 49652662<br>location:----Koramangala 4th Block<br>rest_type:----Quick Bites<br>cuisines:----Italian, Pizza, Beverages</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 4th Block" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----82, 7th Main, 4th B Block, Near BDA Complex, K...<br>name:----Enerjuvate Studio & Cafe<br>online_order:----No<br>book_table:----Yes<br>rate:----4.4<br>phone:----+91 9741404711\r\n080 48148585<br>location:----Koramangala 4th Block<br>rest_type:----Cafe<br>cuisines:----Cafe, Continental, Healthy Food, Sandwich</p></td></tr></table>";
+      }
+      else if(city=="Koramangala 4th Block" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----140/C, 15th Main, Opposite Chinmaya School, Ko...<br>name:----Bite Me Cupcakes<br>online_order :----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----+91 7259032026\r\r\n+91 8197810123<br>location:----Koramangala 4th Block<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts</p></td></tr></table>";
+      }
+      else if(city=="MG Road" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----Barton Center, 84, 13th Floor, MG Road, Bangalore<br>name:----Ebony<br>online_order:----Yes<br>book_table:----Yes<br>rate:----4.3<br>phone:----080 41783344<br>location:----MG Road<br>rest_type:----Casual Dining<br>cuisines:----North Indian, South Indian</p></td></tr></table>";
+      }
+      else if(city=="MG Road" && rest=="Quick Bites " )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----Church Street, Shanthala Nagar, Ashok Nagar, M...<br>name:----The Bundle Co.<br>online_order:----Yes<br>book_table:----No<br>rate:----4.4<br>phone:----+91 9148887222<br>location:----MG Road<br>rest_type:----Quick Bites<br>cuisines:----Burger, Continental, Italian, Beverages</p></td></tr></table>";
+      }
+      else if(city=="MG Road" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----52, Brigade Road, Haridevpur, Shanthala Nagar,...<br>name:----Cafe Azzure<br>online_order:----Yes<br>book_table:----Yes<br>rate:----4.3<br>phone:----080 49653400<br>location:----MG Road<br>rest_type:----Cafe<br>cuisines:----Cafe, Continental, Italian, Burger</p></td></tr></table>";
+      }
+      else if(city=="MG Road" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----Vivanta By Taj, 41/3, MG Road, Bangalore<br>name:----Sugar & Spice - Taj MG Road Bengaluru<br>online_order:----No<br>book_table:----No<br>rate:----4<br>phone:----080 66604227\r\n080 66604444<br>location:----MG Road<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts</p></td></tr></table>";
+      }
+      else if(city=="Lavelle Road" && rest=="Casual Dining" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----Level 2, The Collection, UB City, Vithal Mally...<br>name:----Rasovara<br>online_order:----Yes<br>book_table:----Yes<br>rate:----4.3<br>phone:----080 41738968\r\n+91 9886060965<br>location:----Lavelle Road<br>rest_type:----Casual Dining<br>cuisines:----Rajasthani, North Indian</p>";
+      }
+      else if(city=="Lavelle Road" && rest=="Quick Bites" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----4, Madras Bank Road, Off Lavelle Road<br>name:----Airlines Hotel<br>online_order:----Yes<br>book_table :----No<br>rate:----4<br>phone:----+91 8022273783\r\r\n+91 8022273786<br>location:----Lavelle Road<br>rest_type:----Quick Bites<br>cuisines:----South Indian, North Indian, Street Food</p></td></tr></table>";
+      }
+      else if(city=="Lavelle Road" && rest=="Cafe" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----23/2, Vittal Mallya Road, Opposite UB City<br>name:----Cafe Coffee Day The Square<br>online_order:----No<br>book_table:----No<br>rate:----4.1<br>phone:----080 40012101<br>location:----Lavelle Road<br>rest_type:----Cafe<br>cuisines:----Cafe</p></td></tr></table>";
+      }
+      else if(city=="Lavelle Road" && rest=="Dessert Parlor" )
+      {
+      	document.getElementById("demo").innerHTML = "<table class=m border=3 align= center width=75%><tr><td><p  align= center>address:----24, Ground Floor, Canberra Block, The Collecti...<br>name:----Chocolate D'Luxe<br>online_order:----Yes<br>book_table:----No<br>rate:----4.1<br>phone:----080 41214925\r\r\n+91 7795572079<br>location:----Lavelle Road<br>rest_type:----Dessert Parlor<br>cuisines:----Desserts</p>";
+      }
+
+    }
+  </script>
+</body>
+
+</html>
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  </head>
+
+
+    <select id="mySelect" onchange="myFunction()">
+      <option value="1" style="height:40px">table for 1</option>
+      <option value="2" style="height:40px">table for 2</option>
+      <option value="3" style="height:40px">table for 3</option>
+      <option value="4" style="height:40px">table for 4</option></select
+    ><br /><br />
+</td></tr>
+<tr><td>
+    <label for="timing"><font style="font-family:comic sans MS;font-size:30px;color:black"><b>Timing:</label></td>
+    <td>
+    <input type="text" id="name" name="name" value="" /><br /></td></tr>
+    <tr><td><br></td></tr>
+    <tr><td><br></td></tr>
+    <tr><td><br></td></tr>
+    <tr><td colspan="2" align = "center">
+    <button style = "background-color:black;font-size:40px;color:white;height:60">Book</button></td></tr>
+    </table>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("mySelect").value;
+        document.getElementById("demo").innerHTML = "You selected: " + x;
+      }
+    </script>
+  </body>
+</html>

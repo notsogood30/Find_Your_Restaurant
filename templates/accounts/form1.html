@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      #bg{
+        background-size: 1800px 900px;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  {% load static %}
+  <body id="bg" style="background-image: url('{% static "accounts/white.jpg" %}')";>
+    <table width="100%" align="center">
+      <tr><td><a href="{% url 'accounts:mainpage' %}"><button type="button" style = "background-color:black;font-size:20px;color:white;height:60">BACK>></button></a>
+      </td>
+      <td>
+        <div align="center" class=""><font style="font-family:algerian;font-size:70px;color:black"><b>PERSONAL DETAILS</b></font></div>
+      </td></tr>
+    </table>
+    <br><br><br><br>
+    <form action="./form2.html">
+      <table border="0" align="Center" width="50%">
+      <tr><td align="right">
+      <label for="name"><font style="font-family:comic sans MS;font-size:30px;color:black"><b>Name:</label><br /></td>
+      <td>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value=""
+        onchange="myName()"
+      /><br /></td></tr>
+      <tr><td align="right">
+      <label for="email"><font style="font-family:comic sans MS;font-size:30px;color:black"><b>Email:</label><br /></td>
+      <td>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        value=""
+        onchange="myEmail()"
+      /><br /></td></tr>
+      <tr><td align="right">
+      <label for="address"><font style="font-family:comic sans MS;font-size:30px;color:black"><b>Address:</label><br /></td>
+      <td>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        value=""
+        onchange="myAddress()"
+      /><br /></td></tr>
+      <tr><td align="right">
+      <label for="number"><font style="font-family:comic sans MS;font-size:30px;color:black"><b>Phone Number:</label><br /></td>
+      <td>
+      <input
+        type="text"
+        id="number"
+        name="number"
+        value=""
+        onchange="myNumber()"
+      /><br />
+      </td></tr>
+      <tr><td align="right"><label for="number"><font style="font-family:comic sans MS;font-size:30px;color:black"><b>City:</label><br /></td>
+        <td>
+      <input
+        type="text"
+        id="city"
+        name="city"
+        value=""
+        onchange="myCity()"
+      /><br /></td></tr><br />
+      <tr><td><br></td></tr>
+      <tr><td><br></td></tr>
+      <tr><td><br></td></tr>
+      <tr ><td align ="Center" colspan = "2"><a href="{% url 'accounts:form2' %}"><button type="button"  style = "background-color:black;font-size:40px;color:white;height:60">Search</button></a></td></tr>
+    </table></form>
+    <p id="demo"></p>
+    <script>
+      var name, address, number, email, cuisine, city;
+      function myName() {
+        name = document.getElementById("name").value;
+        console.log(name);
+      }
+      function myEmail() {
+        email = document.getElementById("email").value;
+        console.log(email);
+      }
+      function myAddress() {
+        address = document.getElementById("address").value;
+        console.log(address);
+      }
+      function myNumber() {
+        number = document.getElementById("number").value;
+        console.log(number);
+      }
+      function myCuisine() {
+        cuisine = document.getElementById("cuisine").value;
+        console.log(cuisine);
+      }
+      function myCity() {
+        city = document.getElementById("city").value;
+        console.log(city);
+      }
+      function submitfunc() {
+        if (number === "123") {
+          alert("Your number is 123");
+        }
+      }
+    </script>
+  </body>
+</html>
